@@ -1,0 +1,52 @@
+{
+  "name": "dafnis-cloud",
+  "version": "1.0.0",
+  "description": "Point of sales system for small business made with express and sequelize, cloud native",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "seed": "node seed.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexander0144/dafnis-cloud.git"
+  },
+  "keywords": [
+    "CRM",
+    "CMS",
+    "Node.js",
+    "Express",
+    "EJS",
+    "Sequelize",
+    "Sales",
+    "Dafnis"
+  ],
+  "author": "Development Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexander0144/dafnis-cloud/issues"
+  },
+  "homepage": "https://github.com/Alexander0144/dafnis-cloud#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mariadb": "^3.0.2",
+    "md5": "^2.3.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
