@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../../config/database");
 const RegistroSesion = require("./RegistroSesion");
+const Producto = require("./Producto");
 
 const Usuario = db.define(
   "Usuario",
@@ -44,5 +45,10 @@ const Usuario = db.define(
 
 Usuario.hasMany(RegistroSesion, { foreignKey: "usuario_id" });
 RegistroSesion.belongsTo(Usuario, { foreignKey: "usuario_id" });
+
+Usuario.hasMany(Producto, { foreignKey: "creado_por_id" });
+Producto.belongsTo(Usuario, { foreignKey: "creado_por_id" });
+Usuario.hasMany(Producto, { foreignKey: "editado_por_id" });
+Producto.belongsTo(Usuario, { foreignKey: "editado_por_id" });
 
 module.exports = Usuario;
