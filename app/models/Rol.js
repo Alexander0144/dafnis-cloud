@@ -8,15 +8,20 @@ const Rol = db.define(
   {
     nombre: {
       type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
     },
     descripcion: {
       type: Sequelize.STRING,
+      allowNull: true,
     },
     estatus_activo: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
     is_system_data: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
   },
   {

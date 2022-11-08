@@ -7,27 +7,36 @@ const Permiso = db.define(
   {
     nombre: {
       type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
     },
     permite_leer: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
     permite_crear: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
     permite_editar: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
     permite_eliminar: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
     modulo: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     ruta: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     is_system_data: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
   },
   {

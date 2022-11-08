@@ -6,18 +6,23 @@ const RegistroSesion = db.define(
   {
     estatus_sesion: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     fondo_inicial_caja: {
       type: Sequelize.INTEGER,
+      allowNull: false,
     },
     hora_de_apertura: {
       type: Sequelize.DATE,
+      allowNull: false,
     },
     fondos_despues_del_corte: {
       type: Sequelize.INTEGER,
+      allowNull: false,
     },
     hora_de_cierre: {
       type: Sequelize.DATE,
+      allowNull: false,
     },
   },
   {

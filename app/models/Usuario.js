@@ -8,30 +8,41 @@ const Usuario = db.define(
   {
     nombre: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     apellido_paterno: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     apellido_materno: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     nombre_completo: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     correo: {
       type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
     },
     username: {
       type: Sequelize.STRING,
+      allowNull: false,
+      unique: true,
     },
     password: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     estatus_activo: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
     is_system_data: {
       type: Sequelize.BOOLEAN,
+      allowNull: false,
     },
   },
   {

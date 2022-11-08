@@ -5,8 +5,6 @@ const bodyParser = require("body-parser");
 
 const env = require("./config/env");
 
-console.log(require("util").inspect(env));
-
 const db = require("./config/database");
 
 app.disable("x-powered-by");
