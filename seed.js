@@ -128,6 +128,8 @@ async function sync() {
 
     await createTables();
     await insertSystemData();
+
+    process.exit(0);
   } catch (error) {
     console.log(error.message);
   }
