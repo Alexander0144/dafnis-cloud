@@ -5,6 +5,7 @@ const connectionConfig = {
   host: env.database.host,
   dialect: env.database.dialect,
   operatorAliases: false,
+  logging: env.database.query_logging_enable,
   pool: {
     max: env.database.pool.max,
     min: env.database.pool.min,

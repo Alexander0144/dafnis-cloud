@@ -1,6 +1,13 @@
+const Usuario = require("../models/Usuario");
+
 class UserRepository {
   async getUserByUserName(userName) {
-    throw "Unimplemented";
+    const dbUser = await Usuario.findOne({
+      where: {
+        username: userName,
+      },
+    });
+    return dbUser;
   }
 
   async getUserByEmail(email) {
