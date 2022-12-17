@@ -3,11 +3,22 @@ const router = require("express").Router();
 const MV = "MainLayout";
 
 router.get("/", (req, res) => {
-  res.redirect("/login");
+  if (req.cookies["dafnis_jwt"]) {
+    return res.redirect("/home");
+  } else {
+    return res.redirect("/login");
+  }
 });
 
 router.get("/login", (req, res) => {
   res.render("Login");
+});
+
+router.get("/home", (req, res) => {
+  const viewModel = {
+    page: "partials/homeDashboardPartial",
+  };
+  res.render(MV, viewModel);
 });
 
 // Temp

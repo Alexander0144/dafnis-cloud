@@ -35,6 +35,8 @@ const env = {
   },
   jwt: {
     secret: process.env.JWT_SECRET,
+    refresh_secret: process.env.REFRESH_TOKEN_SECRET,
+    expires_ms: process.env.TOKEN_EXPIRES_MS,
   },
 };
 

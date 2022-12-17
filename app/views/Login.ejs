@@ -51,6 +51,17 @@
       .login-btn-submit-style:hover {
         background-color: #3f845f !important;
       }
+
+      input.money-input-funds::-webkit-outer-spin-button,
+      input.money-input-funds::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      }
+
+      input.money-input-funds[type="number"] {
+        -moz-appearance: textfield; /* Firefox */
+      }
     </style>
   </head>
   <body id="login-body">
@@ -140,9 +151,9 @@
                         <label>Fondo Inicial</label>
                         <input
                           id="login-initial-funds-1"
-                          type="text"
-                          class="form-control"
-                          placeholder="$"
+                          type="number"
+                          class="form-control money-input-funds"
+                          placeholder="0"
                         />
                       </div>
 
@@ -178,7 +189,7 @@
     </div>
 
     <!--SCRIPTS-->
-    
+
     <script src="/public/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="/public/lib/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="/public/lib/jquery/jquery-3.6.1.js"></script>

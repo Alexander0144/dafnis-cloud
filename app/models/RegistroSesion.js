@@ -18,11 +18,11 @@ const RegistroSesion = db.define(
     },
     fondos_despues_del_corte: {
       type: Sequelize.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     hora_de_cierre: {
       type: Sequelize.DATE,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
