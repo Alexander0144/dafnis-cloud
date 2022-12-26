@@ -28,7 +28,7 @@ const env = {
     query_logging_enable: process.env.DB_LOGGING_ENABLE || false,
   },
   cookie: {
-    name: process.env.COOKIE_NAME || "dafnis_sst",
+    name: process.env.COOKIE_NAME || "dafnis_jwt",
     domain: process.env.COOKIE_DOMAIN || ".localhost:9001",
     http_only: process.env.COOKIE_HTTP_ONLY || true,
     is_secure: process.env.COOKIE_IS_SECURE || false,

@@ -44,7 +44,7 @@ function ajaxErrorValidateCredentials(error) {
   }
 
   return new AlertService().showErrorMessage(
-    "Ha ocurrido un error, intente de nuevo ms tarde"
+    "Ha ocurrido un error, intente de nuevo más tarde"
   );
 }
 

@@ -2,7 +2,11 @@ const crypto = require("crypto");
 const userRepository = require("../repository/userRepository");
 const rolRepository = require("../repository/rolRepository");
 const registroSesionRepository = require("../repository/registroSesionRepository");
-const { generateJwt, setSessionCookie } = require("../middleware/auth");
+const {
+  generateJwt,
+  setSessionCookie,
+  deleteSessionCookie,
+} = require("../middleware/auth");
 const { EstatusSesion } = require("../constants/constantsRegistroSesion");
 const _ = require("lodash");
 
@@ -102,6 +106,7 @@ class SessionService {
         id: dbUser.id,
         username: dbUser.username,
         correo: dbUser.correo,
+        nombre_completo: dbUser.nombre_completo,
         estatus_activo: dbUser.estatus_activo,
         rol: {
           id: userRole.id,
@@ -133,6 +138,33 @@ class SessionService {
         .json({ status: "success", redirect: true, location: "/home" });
     } catch (error) {
       console.log("SessionService: An error occurred in the login process");
+      console.error(error.message);
+      res.status(500).json({ status: "error", message: error.message });
+    }
+  }
+
+  async logoutAndUpdateSessionstatus(req, res) {
+    try {
+      if (!req.session || !req.session.user) {
+        throw new Error("Invalid session data or JWT");
+      }
+
+      const user = req.session.user;
+
+      await registroSesionRepository.updateEstatusRegistroSesionByUsuarioId(
+        user.id,
+        EstatusSesion.INACTIVA
+      );
+
+      deleteSessionCookie(res);
+
+      delete req.session;
+
+      return res
+        .status(200)
+        .json({ status: "success", redirect: true, location: "/login" });
+    } catch (error) {
+      console.log("SessionService: An error occurred while logging out");
       console.error(error.message);
       res.status(500).json({ status: "error", message: error.message });
     }

@@ -47,6 +47,10 @@
 
     <link href="/public/vendor/css/lib/helper.css" rel="stylesheet" />
     <link href="/public/vendor/css/style.css" rel="stylesheet" />
+
+    <!-- PARTIAL STYLES -->
+
+    <%- include(partialStyles) %>
   </head>
 
   <body id="main-layout-body">
@@ -64,7 +68,19 @@
                 <span>Dafnis</span>
               </a>
             </div>
-            <li class="label">Main</li>
+            <li class="label">Menú</li>
+            <!--BEGIN MENU FOR LOOP-->
+            <% for (const menuItem of menu) { %> 
+              <li>
+                <a href="<%= menuItem.ruta %>"
+                  ><i class="<%= menuItem.icono %>"></i>
+                  <%- menuItem.modulo %> 
+                 </a>
+              </li>
+            <% } %> 
+            <!-- END MENU FOR LOOP-->
+
+            <!--<li class="label">Main</li>
             <li>
               <a class="sidebar-sub-toggle"
                 ><i class="ti-home"></i> Dashboard
@@ -225,7 +241,7 @@
             </li>
             <li>
               <a><i class="ti-close"></i> Logout</a>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>
@@ -338,7 +354,7 @@
               <div class="dropdown dib">
                 <div class="header-icon" data-toggle="dropdown">
                   <span class="user-avatar"
-                    >John
+                    ><%- user.nombre_completo %> 
                     <i class="ti-angle-down f-s-10"></i>
                   </span>
                   <div
@@ -353,11 +369,11 @@
                         <li>
                           <a href="#">
                             <i class="ti-user"></i>
-                            <span>Profile</span>
+                            <span>Mi Perfil</span>
                           </a>
                         </li>
 
-                        <li>
+                        <!--<li>
                           <a href="#">
                             <i class="ti-email"></i>
                             <span>Inbox</span>
@@ -375,9 +391,9 @@
                             <i class="ti-lock"></i>
                             <span>Lock Screen</span>
                           </a>
-                        </li>
+                        </li>-->
                         <li>
-                          <a href="#">
+                          <a href="#" id="dropdown-cerrar-sesion-logoff">
                             <i class="ti-power-off"></i>
                             <span>Cerrar Sesión</span>
                           </a>
@@ -426,5 +442,16 @@
     <script src="/public/vendor/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <!-- scripit init-->
     <script src="/public/vendor/js/dashboard2.js"></script>
+
+    <!--SHARED CUSTOM SCRIPTS-->
+    <script src="/public/custom/httpService.js"></script>
+    <script src="/public/custom/alertService.js"></script>
+
+    <!--MAIN LAYOUT CUSTOM SCRIPTS-->
+    <script src="/public/custom/mainLayout.js"></script>
+
+    <!--PARTIAL VIEW DINAMICALLY INCLUDED SCRIPTS-->
+
+    <%- include(partialScripts) %>
   </body>
 </html>

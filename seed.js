@@ -40,8 +40,9 @@ async function insertSystemData() {
         permite_crear: true,
         permite_editar: true,
         permite_eliminar: true,
-        modulo: "dashboard",
-        ruta: "/dashboard",
+        modulo: "Dashboard",
+        ruta: "/home",
+        icono: "ti-home",
         is_system_data: true,
       });
 
@@ -53,12 +54,27 @@ async function insertSystemData() {
         permite_crear: true,
         permite_editar: true,
         permite_eliminar: true,
-        modulo: "productos",
+        modulo: "Productos",
         ruta: "/productos",
+        icono: "ti-star",
         is_system_data: true,
       });
 
       permisosAdmin.push(permisoAdminProductos);
+
+      const permisoAdminClientes = await Permiso.create({
+        nombre: "admin clientes",
+        permite_leer: true,
+        permite_crear: true,
+        permite_editar: true,
+        permite_eliminar: true,
+        modulo: "Clientes",
+        ruta: "/clientes",
+        icono: "ti-notepad",
+        is_system_data: true,
+      });
+
+      permisosAdmin.push(permisoAdminClientes);
 
       const permisoAdminCuentas = await Permiso.create({
         nombre: "admin cuentas",
@@ -68,6 +84,7 @@ async function insertSystemData() {
         permite_eliminar: true,
         modulo: "cuentas",
         ruta: "/cuentas",
+        icono: "ti-user",
         is_system_data: true,
       });
 

@@ -19,6 +19,7 @@ class RolService {
       return {
         modulo: permisoRol.Permiso.modulo,
         ruta: permisoRol.Permiso.ruta,
+        icono: permisoRol.Permiso.icono,
         permite_leer: permisoRol.Permiso.permite_leer,
         permite_crear: permisoRol.Permiso.permite_crear,
         permite_editar: permisoRol.Permiso.permite_editar,

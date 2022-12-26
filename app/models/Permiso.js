@@ -34,6 +34,10 @@ const Permiso = db.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    icono: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     is_system_data: {
       type: Sequelize.BOOLEAN,
       allowNull: false,

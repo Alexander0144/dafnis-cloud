@@ -1,7 +1,128 @@
 <div class="row">
   <div class="col-lg-12 col-md-12">
-    <h1>Productos</h1>
+    <h3>Productos</h3>
     <br />
-    <p>Vista en construcción</p>
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-12">
+        <button
+          id="productos-btn-agregar-producto-1"
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#modalDialogueCrearProducto"
+        >
+          Agregar Producto +
+        </button>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-12">
+        <button
+          id="productos-btn-eliminar-producto-1"
+          type="button"
+          class="btn btn-danger"
+        >
+          Eliminar Producto -
+        </button>
+      </div>
+      <div
+        class="col-lg-8 col-md-6 col-sm-12 d-lg-block d-md-none d-sm-none"
+      ></div>
+    </div>
+
+    <!-- MODAL AREA -->
+
+    <div
+      class="modal fade"
+      id="modalDialogueCrearProducto"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="#modalDialogueCrearProductoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDialogueCrearProductoLabel">
+              Nuevo Producto
+            </h5>
+            <button
+              type="button"
+              class="close btn btn-light bg-light"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label
+                          for="nombre-nuevo-producto-porductos-partial-form-1"
+                          >Nombre</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nombre-nuevo-producto-porductos-partial-form-1"
+                          aria-describedby="productName"
+                          placeholder="Nuevo Producto"
+                        />
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label
+                          for="precio-unitario-nuevo-producto-porductos-partial-form-1"
+                          >Precio Unitario</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="precio-unitario-nuevo-producto-porductos-partial-form-1"
+                          aria-describedby="productPrice"
+                          placeholder="$0"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <label
+                          for="descripcion-nuevo-producto-productos-partial-form-1"
+                          >Descripción</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="descripcion-nuevo-producto-productos-partial-form-1"
+                          style="height: 100px; width: 100%;"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="productos-btn-modal-cancelar-1"
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              id="productos-btn-modal-crear-nuevo-1"
+              type="button"
+              class="btn btn-primary"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
