@@ -25,7 +25,7 @@ const env = {
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     ssl_enable: process.env.DB_SSL_ENABLE || false,
-    query_logging_enable: process.env.DB_LOGGING_ENABLE || false,
+    query_logging_enable: (process.env.DB_LOGGING_ENABLE === true) || false,
   },
   cookie: {
     name: process.env.COOKIE_NAME || "dafnis_jwt",
