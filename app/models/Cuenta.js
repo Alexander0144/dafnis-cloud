@@ -2,11 +2,12 @@ const Sequelize = require("sequelize");
 const db = require("../../config/database");
 const Cliente = require("./Cliente");
 const DetalleCuenta = require("./DetalleCuenta");
+const { EstatusCuenta } = require("../constants/constantsCuenta");
 
 const Cuenta = db.define(
   "Cuenta",
   {
-    numero_de_ticket: {
+    folio_de_ticket: {
       type: Sequelize.STRING,
       allowNull: false,
       unique: true,
@@ -15,6 +16,16 @@ const Cuenta = db.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    tipo_de_pago: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      defaultValue: null,
+    },
+    estatus_de_cuenta: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      defaultValue: EstatusCuenta.ABIERTA,
+    },
     nombre_cuenta: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -22,10 +33,12 @@ const Cuenta = db.define(
     tiene_cliente: {
       type: Sequelize.BOOLEAN,
       allowNull: false,
+      defaultValue: false,
     },
     sub_total: {
       type: Sequelize.DOUBLE,
       allowNull: false,
+      defaultValue: 0,
     },
     iva: {
       type: Sequelize.DOUBLE,

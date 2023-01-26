@@ -29,7 +29,7 @@ router.get(
       partialScripts: "partials_scripts/placeholder",
       partialStyles: "partials_styles/placeholder",
       menu: req.session.menu,
-      user: req.session.user
+      user: req.session.user,
     };
     res.render(MV, viewModel);
   }
@@ -45,7 +45,7 @@ router.get(
       partialScripts: "partials_scripts/productosScripts",
       partialStyles: "partials_styles/productosStyles",
       menu: req.session.menu,
-      user: req.session.user
+      user: req.session.user,
     };
     res.render(MV, viewModel);
   }
@@ -58,10 +58,10 @@ router.get(
   (req, res) => {
     const viewModel = {
       page: "partials/cuentasPartial",
-      partialScripts: "partials_scripts/placeholder",
-      partialStyles: "partials_styles/placeholder",
+      partialScripts: "partials_scripts/cuentasScripts",
+      partialStyles: "partials_styles/cuentasStyles",
       menu: req.session.menu,
-      user: req.session.user
+      user: req.session.user,
     };
     res.render(MV, viewModel);
   }
@@ -77,7 +77,7 @@ router.get(
       partialScripts: "partials_scripts/placeholder",
       partialStyles: "partials_styles/placeholder",
       menu: req.session.menu,
-      user: req.session.user
+      user: req.session.user,
     };
     res.render(MV, viewModel);
   }

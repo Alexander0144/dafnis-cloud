@@ -48,6 +48,20 @@ async function insertSystemData() {
 
       permisosAdmin.push(permisoAdminDashboard);
 
+      const permisoAdminCuentas = await Permiso.create({
+        nombre: "admin cuentas cobros",
+        permite_leer: true,
+        permite_crear: true,
+        permite_editar: true,
+        permite_eliminar: true,
+        modulo: "Cuentas/Cobros",
+        ruta: "/cuentas",
+        icono: "ti-shopping-cart",
+        is_system_data: true,
+      });
+
+      permisosAdmin.push(permisoAdminCuentas);
+
       const permisoAdminProductos = await Permiso.create({
         nombre: "admin productos",
         permite_leer: true,
@@ -75,20 +89,6 @@ async function insertSystemData() {
       });
 
       permisosAdmin.push(permisoAdminClientes);
-
-      const permisoAdminCuentas = await Permiso.create({
-        nombre: "admin cuentas",
-        permite_leer: true,
-        permite_crear: true,
-        permite_editar: true,
-        permite_eliminar: true,
-        modulo: "cuentas",
-        ruta: "/cuentas",
-        icono: "ti-user",
-        is_system_data: true,
-      });
-
-      permisosAdmin.push(permisoAdminCuentas);
     }
 
     const countRol = await Rol.count();

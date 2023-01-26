@@ -1,7 +1,7 @@
 const EstatusSesion = Object.freeze({
   ACTIVA: "activa",
   INACTIVA: "inactiva",
-  HISTORICO: "historico"
+  HISTORICO: "historico",
 });
 
 module.exports = { EstatusSesion };
