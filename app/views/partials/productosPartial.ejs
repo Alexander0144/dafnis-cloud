@@ -16,6 +16,15 @@
       </div>
       <div class="col-lg-2 col-md-3 col-sm-12">
         <button
+          id="productos-btn-editar-producto-1"
+          type="button"
+          class="btn btn-info"
+        >
+          Editar Producto *
+        </button>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-12">
+        <button
           id="productos-btn-eliminar-producto-1"
           type="button"
           class="btn btn-danger"
@@ -24,7 +33,7 @@
         </button>
       </div>
       <div
-        class="col-lg-8 col-md-6 col-sm-12 d-lg-block d-md-none d-sm-none"
+        class="col-lg-6 col-md-3 col-sm-12 d-lg-block d-md-none d-sm-none"
       ></div>
     </div>
 
@@ -32,7 +41,11 @@
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
-            <table class="table table-striped" id="productos-tbl-databrid-1" style="width: 100% !important;">
+            <table
+              class="table table-striped selectable-table"
+              id="productos-tbl-datagrid-1"
+              style="width: 100% !important"
+            >
               <thead>
                 <tr>
                   <th scope="col">Id</th>
@@ -41,8 +54,7 @@
                   <th scope="col">Precio Unitario</th>
                 </tr>
               </thead>
-              <tbody>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
@@ -50,6 +62,8 @@
     </div>
 
     <!-- MODAL AREA -->
+
+    <!-- MODAL CREATE -->
 
     <div
       class="modal fade"
@@ -116,7 +130,7 @@
                         <textarea
                           class="form-control"
                           id="descripcion-nuevo-producto-productos-partial-form-1"
-                          style="height: 100px; width: 100%;"
+                          style="height: 100px; width: 100%"
                         ></textarea>
                       </div>
                     </div>
@@ -140,6 +154,106 @@
               class="btn btn-primary"
             >
               Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL EDIT -->
+
+    <div
+      class="modal fade"
+      id="modalDialogueEditarActualizarProducto"
+      tabindex="0"
+      role="dialog"
+      aria-labelledby="#modalDialogueEditarActualizarProductoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="modalDialogueEditarActualizarProductoLabel"
+            >
+              Editar Producto
+            </h5>
+            <button
+              type="button"
+              class="close btn btn-light bg-light"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label
+                          for="nombre-editar-actualizar-producto-porductos-partial-form-2"
+                          >Nombre</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="nombre-editar-actualizar-producto-porductos-partial-form-2"
+                          aria-describedby="productName"
+                          placeholder="Nuevo Producto"
+                        />
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label
+                          for="precio-unitario-editar-actualizar-producto-porductos-partial-form-2"
+                          >Precio Unitario</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="precio-unitario-editar-actualizar-producto-porductos-partial-form-2"
+                          aria-describedby="productPrice"
+                          placeholder="$0"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                        <label
+                          for="descripcion-editar-actualizar-producto-productos-partial-form-2"
+                          >Descripción</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="descripcion-editar-actualizar-producto-productos-partial-form-2"
+                          style="height: 100px; width: 100%"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="productos-btn-modal-cancelar-2-editar-actualizar"
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              id="productos-btn-modal-editar-actualizar-2-edit"
+              type="button"
+              class="btn btn-primary"
+            >
+              Actualizar
             </button>
           </div>
         </div>

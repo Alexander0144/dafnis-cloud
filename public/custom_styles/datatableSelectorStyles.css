@@ -1,0 +1,16 @@
+table.selectable-table tbody > tr:hover {
+    background-color: #dadaf8;
+}
+
+table.selectable-table tbody > tr:hover td {
+    color: #000000;
+}
+
+table.selectable-table .selected-row-data-grid {
+    background-color: #dadaf8;
+}
+
+table.selectable-table .selected-row-data-grid td{
+    color: #000000;
+    font-weight: bold;
+}

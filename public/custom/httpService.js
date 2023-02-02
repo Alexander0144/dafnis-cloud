@@ -1,6 +1,19 @@
 class HttpService {
-  sendGetRequest(URL, headers) {
-    throw new Error("Unimplemented method");
+  sendGetRequest(URL, callbacks, headers = {}) {
+    $.ajax({
+      type: "GET",
+      beforeSend: function (request) {
+        if (headers) {
+          for (key of Object.keys(headers)) {
+            request.setRequestHeader(key, headers[key]);
+          }
+        }
+      },
+      url: URL,
+      dataType: "json",
+      success: callbacks.success,
+      error: callbacks.error,
+    });
   }
 
   sendPostRequest(URL, requestBody, callbacks, headers = {}) {
@@ -33,7 +46,7 @@ class HttpService {
       },
       url: URL,
       data: JSON.stringify(requestBody),
-      contentType: 'application/json; charset=utf-8',
+      contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: callbacks.success,
       error: callbacks.error,

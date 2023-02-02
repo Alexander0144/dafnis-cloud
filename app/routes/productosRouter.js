@@ -15,11 +15,11 @@ router.post("/create", authenticateTokenMiddleware(), (req, res) =>
 );
 
 router.post("/update/:id", authenticateTokenMiddleware(), (req, res) =>
-  console.log(req, res)
+  productosService.handleUpdateProducto(req, res)
 );
 
 router.post("/delete/:id", authenticateTokenMiddleware(), (req, res) =>
-  console.log(req, res)
+  productosService.handleDeleteProducto(req, res)
 );
 
 module.exports = router;

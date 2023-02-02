@@ -80,7 +80,7 @@ class ProductosService {
         "Productos Service: An error occurred while fetching product data by Id"
       );
       console.error(error.message);
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -143,8 +143,9 @@ class ProductosService {
         editado_por_id: requestUserId,
       };
 
-      const newProductoResponse =
-        await productosRepository.createProducto(newProducto);
+      const newProductoResponse = await productosRepository.createProducto(
+        newProducto
+      );
       const message = "Nuevo producto creado con Id: " + newProductoResponse.id;
 
       return res.status(201).json({
@@ -158,7 +159,7 @@ class ProductosService {
         "Productos Service: An error occurred while creating a new product"
       );
       console.error(error.message);
-      res.status(500).json({
+      return res.status(500).json({
         status: "error",
         message: error.message,
         error: "Internal server error",
@@ -167,11 +168,70 @@ class ProductosService {
     }
   }
 
-  async updateProducto(req, res) {
-    throw new Error("Unimplemented");
+  async handleUpdateProducto(req, res) {
+    try {
+      const body = req.body;
+
+      const requestUserId = parseInt(req.session.user.id);
+
+      const { id, nombre_producto, precio_unitario, descripcion } = body;
+
+      if (!id || !nombre_producto || !precio_unitario) {
+        res
+          .status(400)
+          .json({
+            status: "error",
+            error: "Bad request",
+            message: "Verifique que los valores capturados sean correctos",
+            code: 400,
+          });
+      }
+
+      const idParam = parseInt(id);
+      const precioUnitarioParam = parseFloat(precio_unitario);
+
+      const productDb = await productosRepository.getPrudctoById(idParam);
+
+      if (!productDb) {
+        return res.status(404).json({
+          status: "error",
+          error: "Not Found",
+          message: "No se encontro el producto con el Id especificado",
+          code: 404,
+        });
+      }
+
+      await productDb.update({
+        nombre_producto: nombre_producto,
+        descripcion: descripcion || "",
+        precio_unitario: precioUnitarioParam,
+        editado_por_id: requestUserId,
+      });
+
+      return res.status(200).json({
+        status: "success",
+        message: "Producto actualizado exitosamente",
+        data: {
+          id: productDb.id,
+          clave: productDb.clave_producto,
+        },
+        code: 200,
+      });
+    } catch (error) {
+      console.error(
+        "Productos Service: An error occurred while updating product"
+      );
+      console.error(error.message);
+      return res.status(500).json({
+        status: "error",
+        message: error.message,
+        error: "Internal server error",
+        code: 500,
+      });
+    }
   }
 
-  async deleteProducto(req, res) {
+  async handleDeleteProducto(req, res) {
     try {
       if (!req.session || !req.session.user || !req.session.user.id) {
         throw new Error("Invalid session data or JWT");
@@ -195,27 +255,23 @@ class ProductosService {
 
       await productosRepository.deleteProductoById(productId);
 
-      return res
-        .status(200)
-        .json({
-          status: "success",
-          message: "Producto eliminado",
-          data: "Ok",
-          code: 200,
-        });
+      return res.status(200).json({
+        status: "success",
+        message: "Producto eliminado",
+        data: "Ok",
+        code: 200,
+      });
     } catch (error) {
       console.error(
         "Productos Service: An error occurred while deleting a product"
       );
       console.error(error.message);
-      res
-        .status(500)
-        .json({
-          status: "error",
-          message: error.message,
-          error: "Internal server error",
-          code: 500,
-        });
+      return res.status(500).json({
+        status: "error",
+        message: error.message,
+        error: "Internal server error",
+        code: 500,
+      });
     }
   }
 
