@@ -1,0 +1,149 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <h3>Consumo de alimentos y bebidas</h3>
+    <br />
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-9">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-12">
+              <button
+                id="productos-btn-agregar-producto-1"
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#modalDialogueCrearProducto"
+              >
+                Agregar Producto +
+              </button>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-12">
+              <button
+                id="productos-btn-eliminar-producto-1"
+                type="button"
+                class="btn btn-danger"
+              >
+                Eliminar Producto -
+              </button>
+            </div>
+            <div
+              class="col-lg-4 col-md-2 col-sm-12 d-lg-block d-md-none d-sm-none"
+            ></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12">
+              <label for="cantidad-producto-detalle-cuenta">Cantidad</label>
+              <input
+                type="number"
+                class="form-control"
+                id="cantidad-producto-detalle-cuenta"
+                aria-describedby="productAmount"
+                placeholder="0"
+              />
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-12">
+              <label for="select-product-data-detalle-cuenta"
+                >Seleccione el producto</label
+              >
+
+              <select
+                class="form-select"
+                aria-label="Tipo de cuenta"
+                id="select-product-data-detalle-cuenta"
+                aria-describedby="tipoCuenta"
+              >
+                <option value="1" selected>Hamburguesa con queso</option>
+                <option value="2">Hot-dog sencillo</option>
+                <option value="3">Para llevar</option>
+                <option value="4">Club Sandwich</option>
+                <option value="5">Orden de Hotcakes</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12-col-md-12-col-sm-12">
+              <label for="descripcion-nuevo-producto-productos-partial-form-1"
+                >Nota del Pedido</label
+              >
+              <textarea
+                class="form-control"
+                id="descripcion-nuevo-producto-productos-partial-form-1"
+                style="height: 100px; width: 100%"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg 3 col-md-3 col-sm-3">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Tiene cliente/contacto
+                </label>
+              </div>
+              <br />
+              <button
+                id="productos-btn-agregar-producto-1-cliente"
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#modal"
+              >
+                Agregar cliente +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <table
+              class="table table-striped selectable-table"
+              id="cuentas-cobros-table-datagrid-1"
+              style="width: 100% !important"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Precio Unitario</th>
+                  <th scope="col">Importe</th>
+                  <th scope="col">Hora de Pedido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2</td>
+                  <td>Hot dog sencillo</td>
+                  <td>15</td>
+                  <td>30</td>
+                  <td>11:30 a.m.</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Jugo de piña con chaya</td>
+                  <td>20</td>
+                  <td>20</td>
+                  <td>11:32 a.m.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

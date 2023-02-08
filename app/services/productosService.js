@@ -47,7 +47,7 @@ class ProductosService {
         return res.status(400).json({
           status: "error",
           error: "Bad Request",
-          message: "No se proporciono un Id valido",
+          message: "No se proporcionó un Id valido",
           code: 400,
         });
       }
@@ -177,14 +177,12 @@ class ProductosService {
       const { id, nombre_producto, precio_unitario, descripcion } = body;
 
       if (!id || !nombre_producto || !precio_unitario) {
-        res
-          .status(400)
-          .json({
-            status: "error",
-            error: "Bad request",
-            message: "Verifique que los valores capturados sean correctos",
-            code: 400,
-          });
+        res.status(400).json({
+          status: "error",
+          error: "Bad request",
+          message: "Verifique que los valores capturados sean correctos",
+          code: 400,
+        });
       }
 
       const idParam = parseInt(id);

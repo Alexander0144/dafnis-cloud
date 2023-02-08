@@ -83,4 +83,20 @@ router.get(
   }
 );
 
+router.get(
+  "/cuentas/detalle",
+  authenticateTokenMiddleware(),
+  getSidebarMenuMiddleware(),
+  (req, res) => {
+    const viewModel = {
+      page: "partials/detallesCuentaPartial",
+      partialScripts: "partials_scripts/detallesCuenta",
+      partialStyles: "partials_styles/detallesCuenta",
+      menu: req.session.menu,
+      user: req.session.user,
+    };
+    res.render(MV, viewModel);
+  }
+);
+
 module.exports = router;

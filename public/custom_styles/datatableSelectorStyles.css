@@ -1,16 +1,20 @@
 table.selectable-table tbody > tr:hover {
     background-color: #dadaf8;
+    cursor: pointer;
 }
 
 table.selectable-table tbody > tr:hover td {
     color: #000000;
+    cursor: pointer;
 }
 
 table.selectable-table .selected-row-data-grid {
     background-color: #dadaf8;
+    cursor: pointer;
 }
 
 table.selectable-table .selected-row-data-grid td{
     color: #000000;
     font-weight: bold;
+    cursor: pointer;
 }

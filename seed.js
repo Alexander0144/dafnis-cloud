@@ -8,6 +8,7 @@ const Producto = require("./app/models/Producto");
 const Cliente = require("./app/models/Cliente");
 const Cuenta = require("./app/models/Cuenta");
 const DetalleCuenta = require("./app/models/DetalleCuenta");
+const CuentasCliente = require("./app/models/CuentasCliente");
 const crypto = require("crypto");
 
 async function createTables() {
@@ -21,6 +22,7 @@ async function createTables() {
     await Producto.sync();
     await Cuenta.sync();
     await DetalleCuenta.sync();
+    await CuentasCliente.sync();
   } catch (error) {
     console.log("Error creating tables");
     console.error(error.message);

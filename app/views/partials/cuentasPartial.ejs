@@ -36,7 +36,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <table
-              class="table table-striped"
+              class="table table-striped selectable-table"
               id="cuentas-cobros-table-datagrid-1"
               style="width: 100% !important"
             >
@@ -49,22 +49,7 @@
                   <th scope="col">Estatus</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>9985d560-aada-4708-bdd9-51df47c1195d</td>
-                  <td>Jose: Mesa 1</td>
-                  <td>Consumo en restaurante</td>
-                  <td>Abierta</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>bab08776-e96f-48b9-be8f-12ce48424288</td>
-                  <td>Javier Torres</td>
-                  <td>Para llevar</td>
-                  <td>Abierta</td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
@@ -128,12 +113,16 @@
                           id="tipo-de-cuenta-nueva-cuenta-cobro-partial-new"
                           aria-describedby="tipoCuenta"
                         >
-                          <option value="1" selected>
+                          <option value="consumo en restaurante" selected>
                             Consumo en restaurante
                           </option>
-                          <option value="2">Recoger en mostrador</option>
-                          <option value="3">Para llevar</option>
-                          <option value="3">Pedido a domicilio</option>
+                          <option value="recoger en mostrador">
+                            Recoger en mostrador
+                          </option>
+                          <option value="para llevar">Para llevar</option>
+                          <option value="servicio a domicilio">
+                            Pedido a domicilio
+                          </option>
                         </select>
                       </div>
                     </div>

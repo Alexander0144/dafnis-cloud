@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../../config/database");
-const Cliente = require("./Cliente");
+const CuentasCliente = require("./CuentasCliente");
 const DetalleCuenta = require("./DetalleCuenta");
 const { EstatusCuenta } = require("../constants/constantsCuenta");
 
@@ -72,5 +72,8 @@ const Cuenta = db.define(
 
 Cuenta.hasMany(DetalleCuenta, { foreignKey: "cuenta_id" });
 DetalleCuenta.belongsTo(Cuenta, { foreignKey: "cuenta_id" });
+
+Cuenta.hasMany(CuentasCliente, { foreignKey: "cuenta_id" });
+CuentasCliente.belongsTo(Cuenta, { foreignKey: "cuenta_id" });
 
 module.exports = Cuenta;
